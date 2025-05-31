@@ -1,0 +1,22 @@
+@token=
+
+GET http://localhost:7000/
+Accept: application/json
+
+### Auth Login
+POST http://localhost:7000/api/v1/auth/login
+
+### Auth Register
+POST http://localhost:7000/api/v1/auth/register
+Content-Type: application/json
+
+{
+  "nama_lengkap" : "Jane Doe",
+  "email" : "user@gmail.com",
+  "password" : "akusayangkamu"
+}
+
+### Auth Get Profile 
+GET http://localhost:7000/api/v1/user/getProfile
+Content-Type: application/json
+Authorization: Bearer {{token}}
