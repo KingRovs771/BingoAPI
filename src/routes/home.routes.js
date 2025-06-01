@@ -5,4 +5,4 @@ const router = express.Router();
 
 router.get('/', homeBingo);
 
-module.exports = router;
+module.exports = { router };
