@@ -1,22 +1,31 @@
-@token=
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJpYXQiOjE3NDkwNDIzODIsImV4cCI6MTc0OTA0NTk4Mn0.O7XzoLgjUU6ChDOozLDvvKTC42tZjae_lTmQOY7xUs0
 
-GET http://localhost:7000/
+GET http://localhost:8888/api/home
 Accept: application/json
 
-### Auth Login
-POST http://localhost:7000/api/v1/auth/login
 
 ### Auth Register
-POST http://localhost:7000/api/v1/auth/register
+POST http://localhost:8888/api/auth/register
 Content-Type: application/json
 
 {
-  "nama_lengkap" : "Jane Doe",
+  "nama_lengkap" : "Administrator",
+  "email" : "administrator@gmail.com",
+  "password" : "akusayangkamu",
+  "role" : "Administrator"
+}
+
+### Auth Login
+POST http://localhost:8888/api/auth/login
+Content-Type: application/json
+
+{
   "email" : "user@gmail.com",
   "password" : "akusayangkamu"
 }
 
+
 ### Auth Get Profile 
-GET http://localhost:7000/api/v1/user/getProfile
-Content-Type: application/json
+GET http://localhost:8888/api/user/userProfile
 Authorization: Bearer {{token}}
+Content-Type: application/json

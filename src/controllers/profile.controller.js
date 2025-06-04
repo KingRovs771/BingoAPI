@@ -1,8 +1,7 @@
-const jsonwebtoken = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 require('dotenv').config();
 const profileService = require('../services/profile.service');
 
-const jwt = require(jsonwebtoken);
 
 const getProfile = async (req, res) => {
   try {

@@ -10,7 +10,7 @@ const registerUser = async (nama_lengkap, email, password) => {
 };
 
 const loginUser = async (email, password) => {
-  const user = await userModel.findUserByUsername(username);
+  const user = await userModel.findUserByUsername(email);
   if (!user || !(await bcrypt.compare(password, user.password))) {
     throw new Error('Invalid credentials');
   }

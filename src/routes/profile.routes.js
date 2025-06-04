@@ -5,4 +5,4 @@ const router = expresss.Router();
 
 router.get('/userProfile', getProfile);
 
-module.exports = { router };
+module.exports = router ;

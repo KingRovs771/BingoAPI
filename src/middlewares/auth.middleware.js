@@ -9,7 +9,7 @@ const authenticateToken = (req, res, next) =>{
 
     try{
     const verfied = jwt.verify(token.split(' ')[1], process.env.JWT_SECRET);
-    req.user =verfied;
+    req.user = verfied;
     next();
     }catch (error){
         return res.status(403).json({ error: 'Invalid token' });

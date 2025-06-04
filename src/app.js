@@ -7,15 +7,18 @@ require('dotenv').config();
 const authRoutes = require('./routes/auth.routes');
 const homeRoutes = require('./routes/home.routes');
 const dbRoutes = require('./routes/db.routes');
+const userRoutes = require('./routes/profile.routes');
 //express
 const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
 
-app.use('/', homeRoutes);
-app.use('/health', dbRoutes);
-app.use('/api/v1/auth', authRoutes);
+//routes
+app.use('/api/auth', authRoutes);
+app.use('/api/home', homeRoutes);
+app.use('/api/db', dbRoutes);
+app.use('/api/user', userRoutes);
 
 const PORT = process.env.PORT;
 
