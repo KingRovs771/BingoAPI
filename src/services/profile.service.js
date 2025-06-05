@@ -1,7 +1,14 @@
 const userModel = require('../models/user.model');
 
-const getProfile = async (id) => {
-  return userModel.findUserById(id);
-};
+class ProfileService {
 
-module.exports = { getProfile };
+  static async getProfile (user_id) {
+    const user = await userModel.findUserById(user_id);
+    if (!user) {
+      throw  new Error('User Not Found');
+    }
+    return user;
+  };
+}
+
+module.exports = ProfileService;

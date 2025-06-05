@@ -7,7 +7,7 @@ require('dotenv').config();
 const authRoutes = require('./routes/auth.routes');
 const homeRoutes = require('./routes/home.routes');
 const dbRoutes = require('./routes/db.routes');
-const userRoutes = require('./routes/profile.routes');
+const profileRoutes = require('./routes/profile.routes');
 //express
 const app = express();
 
@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/home', homeRoutes);
 app.use('/api/db', dbRoutes);
-app.use('/api/user', userRoutes);
+app.use('/api/user', profileRoutes);
 
 const PORT = process.env.PORT;
 
