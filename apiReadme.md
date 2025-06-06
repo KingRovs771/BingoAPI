@@ -1,4 +1,4 @@
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMiLCJpYXQiOjE3NDkwNDIzODIsImV4cCI6MTc0OTA0NTk4Mn0.O7XzoLgjUU6ChDOozLDvvKTC42tZjae_lTmQOY7xUs0
+@token=
 
 GET https://bingo-api-virid.vercel.app/api/home
 Accept: application/json
@@ -9,9 +9,9 @@ POST https://bingo-api-virid.vercel.app/api/auth/register
 Content-Type: application/json
 
 {
-  "nama_lengkap" : "Administrator",
-  "email" : "administrator@gmail.com",
-  "password" : "akusayangkamu"
+"nama_lengkap" : "Administrator",
+"email" : "administrator@gmail.com",
+"password" : "akusayangkamu"
 }
 
 ### Auth Login
@@ -19,12 +19,12 @@ POST https://bingo-api-virid.vercel.app/api/auth/login
 Content-Type: application/json
 
 {
-  "email" :"administrator@gmail.com",
-  "password" :"akusayangkamu"
+"email" :"administrator@gmail.com",
+"password" :"akusayangkamu"
 }
 
 
-### Auth Get Profile 
+### Auth Get Profile
 GET https://bingo-api-virid.vercel.app/api/user/userProfile
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IiQyYiQxMCRubTRlUGdCQzcvbER6eXVQMEFkTHdlMTdRZ2dsQW9lZW1ZanUyc0hpaDV2RGxSMm5yR01RYSIsInJvbGUiOiJVc2VyIiwiZW1haWwiOiJhZG1pbmlzdHJhdG9yQGdtYWlsLmNvbSIsImlhdCI6MTc0OTIxMTg4MCwiZXhwIjoxNzQ5MjE1NDgwfQ.jkTHx8cORWhn0vsOEBPAJQj8X8zYpgUakpOe0oy-ixk
 Content-Type: application/json
@@ -36,9 +36,9 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IiQyYiQxMCRubTRlUGdCQzcvbER6eXVQMEFkTHdlMTdRZ2dsQW9lZW1ZanUyc0hpaDV2RGxSMm5yR01RYSIsInJvbGUiOiJVc2VyIiwiZW1haWwiOiJhZG1pbmlzdHJhdG9yQGdtYWlsLmNvbSIsImlhdCI6MTc0OTIxMTg4MCwiZXhwIjoxNzQ5MjE1NDgwfQ.jkTHx8cORWhn0vsOEBPAJQj8X8zYpgUakpOe0oy-ixk
 
 {
-  "judul_article": "Artikel Dengan Gambar",
-  "description": "Ini adalah artikel yang menyertakan URL gambar thumbnail.",
-  "image_thumb": "https://placehold.co/800x450/007bff/ffffff?text=ExpressJS_Tutorial"
+"judul_article": "Artikel Dengan Gambar",
+"description": "Ini adalah artikel yang menyertakan URL gambar thumbnail.",
+"image_thumb": "https://placehold.co/800x450/007bff/ffffff?text=ExpressJS_Tutorial"
 }
 
 ### Request Get All Articles (Public)
@@ -56,9 +56,9 @@ Content-Type: application/json
 Authorization: Bearer <YOUR_AUTHOR_JWT_TOKEN>
 
 {
-  "judul_article": "Judul Artikel Diperbarui dengan Gambar Baru",
-  "description": "Deskripsi yang diperbarui.",
-  "image_thumb": "https://placehold.co/600x400/33FF57/000000?text=Gambar_Diperbarui"
+"judul_article": "Judul Artikel Diperbarui dengan Gambar Baru",
+"description": "Deskripsi yang diperbarui.",
+"image_thumb": "https://placehold.co/600x400/33FF57/000000?text=Gambar_Diperbarui"
 }
 
 ### Request Delete Article (Requires authentication, must be the author)
@@ -71,8 +71,8 @@ POST https://bingo-api-virid.vercel.app/api/analyze
 Content-Type: application/json
 
 {
-  "description": "Analisis dari pengguna tidak terautentikasi (1).",
-  "image": "https://placehold.co/400x300/dc3545/ffffff?text=Unauth_1"
+"description": "Analisis dari pengguna tidak terautentikasi (1).",
+"image": "https://placehold.co/400x300/dc3545/ffffff?text=Unauth_1"
 }
 
 ### Perform Analysis (Unauthenticated User - Attempt 2)
@@ -81,8 +81,8 @@ POST https://bingo-api-virid.vercel.app/api/analyze
 Content-Type: application/json
 
 {
-  "description": "Analisis dari pengguna tidak terautentikasi (2).",
-  "image": "https://placehold.co/400x300/dc3545/ffffff?text=Unauth_2"
+"description": "Analisis dari pengguna tidak terautentikasi (2).",
+"image": "https://placehold.co/400x300/dc3545/ffffff?text=Unauth_2"
 }
 
 ### Perform Analysis (Unauthenticated User - Attempt 3)
@@ -91,8 +91,8 @@ POST https://bingo-api-virid.vercel.app/api/analyze
 Content-Type: application/json
 
 {
-  "description": "Analisis dari pengguna tidak terautentikasi (3).",
-  "image": "https://placehold.co/400x300/dc3545/ffffff?text=Unauth_3"
+"description": "Analisis dari pengguna tidak terautentikasi (3).",
+"image": "https://placehold.co/400x300/dc3545/ffffff?text=Unauth_3"
 }
 
 ### Perform Analysis (Unauthenticated User - Attempt 4 - SHOULD BE RATE-LIMITED 429)
@@ -101,8 +101,8 @@ POST https://bingo-api-virid.vercel.app/api/analyze
 Content-Type: application/json
 
 {
-  "description": "Analisis dari pengguna tidak terautentikasi (4) - HARUS DIBLOKIR.",
-  "image": "https://placehold.co/400x300/ffc107/000000?text=BLOCKED"
+"description": "Analisis dari pengguna tidak terautentikasi (4) - HARUS DIBLOKIR.",
+"image": "https://placehold.co/400x300/ffc107/000000?text=BLOCKED"
 }
 
 ### Perform Analysis (Authenticated User - Unlimited)
@@ -112,8 +112,8 @@ Content-Type: application/json
 Authorization: Bearer <YOUR_JWT_TOKEN>
 
 {
-  "description": "Analisis dari pengguna terautentikasi (seharusnya tak terbatas).",
-  "image": "https://placehold.co/400x300/007bff/ffffff?text=Auth_Unlimited"
+"description": "Analisis dari pengguna terautentikasi (seharusnya tak terbatas).",
+"image": "https://placehold.co/400x300/007bff/ffffff?text=Auth_Unlimited"
 }
 
 ### Get All Analyze Entries (for debugging/admin)
