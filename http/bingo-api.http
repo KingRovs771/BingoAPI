@@ -26,5 +26,95 @@ Content-Type: application/json
 
 ### Auth Get Profile 
 GET http://localhost:8888/api/user/userProfile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IiQyYiQxMCRubTRlUGdCQzcvbER6eXVQMEFkTHdlMTdRZ2dsQW9lZW1ZanUyc0hpaDV2RGxSMm5yR01RYSIsInJvbGUiOiJVc2VyIiwiZW1haWwiOiJhZG1pbmlzdHJhdG9yQGdtYWlsLmNvbSIsImlhdCI6MTc0OTEyMjYxNiwiZXhwIjoxNzQ5MTI2MjE2fQ.US15QuI1_qI584WNf09tZJQdEr1EYMVu1_D4JTAFm5k
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IiQyYiQxMCRubTRlUGdCQzcvbER6eXVQMEFkTHdlMTdRZ2dsQW9lZW1ZanUyc0hpaDV2RGxSMm5yR01RYSIsInJvbGUiOiJVc2VyIiwiZW1haWwiOiJhZG1pbmlzdHJhdG9yQGdtYWlsLmNvbSIsImlhdCI6MTc0OTIxMTg4MCwiZXhwIjoxNzQ5MjE1NDgwfQ.jkTHx8cORWhn0vsOEBPAJQj8X8zYpgUakpOe0oy-ixk
 Content-Type: application/json
+
+### Request Create Article (Requires authentication)
+POST http://localhost:8888/api/article/articles
+# Ganti dengan Token yang diambil setelah login
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IiQyYiQxMCRubTRlUGdCQzcvbER6eXVQMEFkTHdlMTdRZ2dsQW9lZW1ZanUyc0hpaDV2RGxSMm5yR01RYSIsInJvbGUiOiJVc2VyIiwiZW1haWwiOiJhZG1pbmlzdHJhdG9yQGdtYWlsLmNvbSIsImlhdCI6MTc0OTIxMTg4MCwiZXhwIjoxNzQ5MjE1NDgwfQ.jkTHx8cORWhn0vsOEBPAJQj8X8zYpgUakpOe0oy-ixk
+
+{
+  "judul_article": "Artikel Dengan Gambar",
+  "description": "Ini adalah artikel yang menyertakan URL gambar thumbnail.",
+  "image_thumb": "https://placehold.co/800x450/007bff/ffffff?text=ExpressJS_Tutorial"
+}
+
+### Request Get All Articles (Public)
+GET http://localhost:8888/api/article/articles
+Accept: application/json
+
+### Request Get Article by UID (Public)
+# Sertakan Article UID untuk Get Article
+GET http://localhost:8888/api/article/articles/<ARTICLE_UID>
+Accept: application/json
+
+### Request Update Article (Requires authentication, must be the author)
+PUT http://localhost:8888/api/article/articles/<ARTICLE_UID_TO_UPDATE>
+Content-Type: application/json
+Authorization: Bearer <YOUR_AUTHOR_JWT_TOKEN>
+
+{
+  "judul_article": "Judul Artikel Diperbarui dengan Gambar Baru",
+  "description": "Deskripsi yang diperbarui.",
+  "image_thumb": "https://placehold.co/600x400/33FF57/000000?text=Gambar_Diperbarui"
+}
+
+### Request Delete Article (Requires authentication, must be the author)
+DELETE http://localhost:8888/api/article/articles/<ARTICLE_UID_TO_DELETE>
+Authorization: Bearer <YOUR_AUTHOR_JWT_TOKEN>
+
+### Perform Analysis (Unauthenticated User - Attempt 1)
+# Jangan sertakan Authorization header
+POST http://localhost:8888/api/analyze
+Content-Type: application/json
+
+{
+  "description": "Analisis dari pengguna tidak terautentikasi (1).",
+  "image": "https://placehold.co/400x300/dc3545/ffffff?text=Unauth_1"
+}
+
+### Perform Analysis (Unauthenticated User - Attempt 2)
+# Jangan sertakan Authorization header
+POST http://localhost:8888/api/analyze
+Content-Type: application/json
+
+{
+  "description": "Analisis dari pengguna tidak terautentikasi (2).",
+  "image": "https://placehold.co/400x300/dc3545/ffffff?text=Unauth_2"
+}
+
+### Perform Analysis (Unauthenticated User - Attempt 3)
+# Jangan sertakan Authorization header
+POST http://localhost:8888/api/analyze
+Content-Type: application/json
+
+{
+  "description": "Analisis dari pengguna tidak terautentikasi (3).",
+  "image": "https://placehold.co/400x300/dc3545/ffffff?text=Unauth_3"
+}
+
+### Perform Analysis (Unauthenticated User - Attempt 4 - SHOULD BE RATE-LIMITED 429)
+# JANGAN sertakan Authorization header
+POST http://localhost:8888/api/analyze
+Content-Type: application/json
+
+{
+  "description": "Analisis dari pengguna tidak terautentikasi (4) - HARUS DIBLOKIR.",
+  "image": "https://placehold.co/400x300/ffc107/000000?text=BLOCKED"
+}
+
+### Perform Analysis (Authenticated User - Unlimited)
+# Ganti <YOUR_JWT_TOKEN> dengan token pengguna yang terautentikasi
+POST http://localhost:8888/api/analyze
+Content-Type: application/json
+Authorization: Bearer <YOUR_JWT_TOKEN>
+
+{
+  "description": "Analisis dari pengguna terautentikasi (seharusnya tak terbatas).",
+  "image": "https://placehold.co/400x300/007bff/ffffff?text=Auth_Unlimited"
+}
+
+### Get All Analyze Entries (for debugging/admin)
+GET http://localhost:8888/api/analyze
