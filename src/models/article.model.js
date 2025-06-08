@@ -14,7 +14,7 @@ class articleModels {
   }
 
   static async getArticleById (article_uid) {
-    const resultById = await pool.query("SELECT article_uid, author, judul_article, description, image_thumb, create_at, update_at FROM bingo_article WHERE article_uid = $1", [article_uid]);
+    const resultById = await pool.query("SELECT article_uid, author, judul_article, description, image_thumb, created_at, update_at FROM bingo_article WHERE article_uid = $1", [article_uid]);
     return resultById.rows[0];
   }
 
