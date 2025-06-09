@@ -47,7 +47,7 @@ Accept: application/json
 
 ### Request Get Article by UID (Public)
 # Sertakan Article UID untuk Get Article
-GET https://bingo-api-virid.vercel.app/api/article/articles/<ARTICLE_UID>
+GET https://bingo-api-virid.vercel.app/api/article/articles/cdd19290-d238-4827-bab5-f4f3b0cb5a9c
 Accept: application/json
 
 ### Request Update Article (Requires authentication, must be the author)

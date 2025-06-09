@@ -20,11 +20,11 @@ class articleModels {
 
   static async updateArticle(article_uid, author, updates) {
     const { judul_article, description, image_thumb } = updates;
-    const result = await pool.query("UPDATE article SET judul_article = COALESCE($1, judul_article), description = COALESCE($2, description), image_thumb = COALESCE($3, image_thumb), update_at = NOW() WHERE article_uid = $4 AND author = $5 RETURNING *", [judul_article, description, image_thumb, article_uid, author]);
+    const result = await pool.query("UPDATE bingo_article SET judul_article = COALESCE($1, judul_article), description = COALESCE($2, description), image_thumb = COALESCE($3, image_thumb), update_at = NOW() WHERE article_uid = $4 AND author = $5 RETURNING *", [judul_article, description, image_thumb, article_uid, author]);
     return result.rows[0];
   }
   static async deleteArticle(article_uid, author) {
-    const result = await pool.query('DELETE FROM article WHERE article_uid = $1 AND author = $2 RETURNING *',  [article_uid, author]);
+    const result = await pool.query('DELETE FROM bingo_article WHERE article_uid = $1 AND author = $2 RETURNING *',  [article_uid, author]);
     return result.rows[0];
   }
 }
